@@ -1,0 +1,22 @@
+.header {
+  padding: 40px 0 56px;
+  display: flex;
+}
+
+.search-bar {
+  background-color: #323537;
+  width: 100vb;
+  border-radius: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 20px;
+
+  input {
+    border: none;
+    background: none;
+    color: #afb2b6;
+
+    outline: none;
+  }
+}

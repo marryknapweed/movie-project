@@ -1,0 +1,44 @@
+.sidebar {
+  width: 308px;
+  height: 100vh;
+  background-color: #000000;
+  padding: 40px;
+  // display: flex;
+  // flex-direction: column;
+  // justify-content: space-between;
+}
+
+.logo {
+  margin-bottom: 64px;
+
+  img {
+    width: 158px;
+  }
+}
+
+nav {
+  ul {
+    list-style-type: none;
+    padding: 0;
+
+    .nav-item {
+      margin-bottom: 40px;
+
+      a {
+        text-decoration: none;
+        color: #80858b;
+        font-size: 18px;
+        font-weight: 500;
+        transition: color 0.3s ease;
+
+        &:hover {
+          color: #7b61ff;
+        }
+      }
+    }
+
+    .nav-item:last-child {
+      margin-bottom: 0;
+    }
+  }
+}

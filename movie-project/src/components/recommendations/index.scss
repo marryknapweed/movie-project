@@ -1,0 +1,27 @@
+.recommendations {
+  padding: 56px 0;
+  color: white;
+
+  &__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 40px;
+  }
+
+  &__title {
+    font-size: 24px;
+  }
+
+  &__arrow {
+    display: flex;
+    gap: 16px;
+    cursor: pointer;
+  }
+
+  &__list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 40px;
+  }
+}

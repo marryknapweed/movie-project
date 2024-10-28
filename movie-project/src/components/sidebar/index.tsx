@@ -1,5 +1,7 @@
-import {FaHome, FaFire, FaBookmark} from 'react-icons/fa';
-import {IoSettingsSharp} from 'react-icons/io5';
+import { FaHome, FaFire, FaBookmark } from "react-icons/fa";
+import { IoSettingsSharp } from "react-icons/io5";
+
+import "./index.scss";
 
 export const Sidebar = () => {
   return (
@@ -10,23 +12,23 @@ export const Sidebar = () => {
 
       <nav>
         <ul>
-          <li>
+          <li className="nav-item">
             <a href="#home">
               <FaHome /> Home
             </a>
           </li>
-          <li>
+          <li className="nav-item">
             <a href="#trends">
               <FaFire />
               Trends
             </a>
           </li>
-          <li>
+          <li className="nav-item">
             <a href="#favorites">
               <FaBookmark /> Favorites
             </a>
           </li>
-          <li>
+          <li className="nav-item">
             <a href="#settings">
               <IoSettingsSharp /> Settings
             </a>

@@ -16,7 +16,7 @@ export const router = createBrowserRouter([
         element: <h1>Trends</h1>,
       },
       {
-        path: '/items',
+        path: '/items/:id',
         element: <MovieItem />,
       },
       {

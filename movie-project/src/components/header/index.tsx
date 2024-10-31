@@ -1,4 +1,5 @@
-import "./index.scss";
+import './index.scss';
+import filter from '../../image/Filter.png';
 
 export const Header = () => {
   return (
@@ -6,7 +7,7 @@ export const Header = () => {
       <div className="search-bar">
         <input type="text" placeholder="Search" />
         <div className="filter">
-          <img src="./Filter.png" alt="Filter" />
+          <img src={filter} alt="Filter" />
         </div>
       </div>
 

@@ -11,7 +11,7 @@ const initialState = {
 export const fetchMovies = createAsyncThunk('movies/fetchMovies', async (_, {rejectWithValue}) => {
   try {
     const data = await requestMovies();
-    return data.docs || []; // Возвращаем пустой массив, если docs не существует
+    return data.docs || [];
   } catch (error) {
     return rejectWithValue(error);
   }

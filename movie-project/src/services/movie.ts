@@ -3,6 +3,10 @@ import {movieEndpoint} from '../api/endpoints';
 
 export async function requestMovies() {
   const {data} = await client.get(`${movieEndpoint}`, {params: {}});
-  console.log('API Response:', data);
+  return data;
+}
+
+export async function requestMoviesItem(movieId: number) {
+  const {data} = await client.get(`/movie/${movieId}`);
   return data;
 }

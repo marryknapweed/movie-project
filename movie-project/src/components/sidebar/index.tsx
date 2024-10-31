@@ -1,40 +1,41 @@
-import { FaHome, FaFire, FaBookmark } from "react-icons/fa";
-import { IoSettingsSharp } from "react-icons/io5";
-import { Link } from "react-router-dom";
+import {FaHome, FaFire, FaBookmark} from 'react-icons/fa';
+import {IoSettingsSharp} from 'react-icons/io5';
+import {NavLink} from 'react-router-dom';
+import logo from '../../image/logo.png';
 
-import "./index.scss";
+import './index.scss';
 
 export const Sidebar = () => {
   return (
     <aside className="sidebar">
       <div className="logo">
-        <Link to="/">
-          <img src="./logo.png" alt="Logo" />
-        </Link>
+        <NavLink to="/">
+          <img src={logo} alt="Logo" />
+        </NavLink>
       </div>
 
       <nav>
         <ul>
           <li className="nav-item">
-            <a href="#home">
+            <NavLink to="/">
               <FaHome /> Home
-            </a>
+            </NavLink>
           </li>
           <li className="nav-item">
-            <a href="#trends">
+            <NavLink to="/trends">
               <FaFire />
               Trends
-            </a>
+            </NavLink>
           </li>
           <li className="nav-item">
-            <a href="#favorites">
+            <NavLink to="/favorites">
               <FaBookmark /> Favorites
-            </a>
+            </NavLink>
           </li>
           <li className="nav-item">
-            <a href="#settings">
+            <NavLink to="/settings">
               <IoSettingsSharp /> Settings
-            </a>
+            </NavLink>
           </li>
         </ul>
       </nav>

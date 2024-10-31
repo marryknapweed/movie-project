@@ -1,5 +1,6 @@
 import { FaHome, FaFire, FaBookmark } from "react-icons/fa";
 import { IoSettingsSharp } from "react-icons/io5";
+import { Link } from "react-router-dom";
 
 import "./index.scss";
 
@@ -7,7 +8,9 @@ export const Sidebar = () => {
   return (
     <aside className="sidebar">
       <div className="logo">
-        <img src="./logo.png" alt="Logo" />
+        <Link to="/">
+          <img src="./logo.png" alt="Logo" />
+        </Link>
       </div>
 
       <nav>

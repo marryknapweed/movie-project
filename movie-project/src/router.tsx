@@ -1,28 +1,26 @@
-import { CardMovie } from "./components/cardMovie";
-import { Layout } from "./components/layout";
-import { createBrowserRouter } from "react-router-dom";
-import { MovieList } from "./pages/MovieList";
-import { MovieDetails } from "./components/movieDetails";
-import { MovieItem } from "./pages/MovieItem";
+import {Layout} from './components/layout';
+import {createBrowserRouter} from 'react-router-dom';
+import {MovieListPage} from './pages/MovieList';
+import {MovieItem} from './pages/MovieItem';
 
 export const router = createBrowserRouter([
   {
     element: <Layout />,
     children: [
       {
-        path: "/",
-        element: <MovieList />,
+        path: '/',
+        element: <MovieListPage />,
       },
       {
-        path: "/",
+        path: '/',
         element: <h1>Trends</h1>,
       },
       {
-        path: "/items",
+        path: '/items',
         element: <MovieItem />,
       },
       {
-        path: "/settings",
+        path: '/settings',
         element: <h1>Settings</h1>,
       },
     ],

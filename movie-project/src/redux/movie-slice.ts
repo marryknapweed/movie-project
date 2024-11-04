@@ -2,8 +2,16 @@
 
 import {createAsyncThunk, createSlice} from '@reduxjs/toolkit';
 import {requestMovies} from '../services/movie';
+import {RootState} from './store';
+export type {Movie} from '../types/type';
 
-const initialState = {
+interface MovieState {
+  movies: Movie[];
+  isLoading: boolean;
+  error: string | null;
+}
+
+const initialState: MovieState = {
   movies: [],
   isLoading: false,
   error: null,
@@ -39,5 +47,10 @@ export const movieSlice = createSlice({
       });
   },
 });
+
+export const selectHighRatedMovies = (state: RootState) =>
+  state.movies.movies
+    .filter(movie => (movie.ratingKinopoisk || 0) > 9)
+    .sort((a, b) => (a.ratingKinopoisk || 0) - (b.ratingKinopoisk || 0));
 
 export const movieReducer = movieSlice.reducer;

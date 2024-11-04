@@ -50,46 +50,18 @@ export const MovieDetails = ({movieId}: {movieId: number}) => {
 
         <ul className="movie-details__info">
           <li>
-            <span className="label">Year</span>
-            <span className="value">{movie?.year || 'N/A'}</span>
+            <strong>Год выпуска:</strong> {movie?.year || 'N/A'}
           </li>
           <li>
-            <span className="label">Released</span>
-            <span className="value">{movie?.premiere?.world || 'N/A'}</span>
+            <strong>Страна:</strong>{' '}
+            {movie?.countries?.map(country => country.country).join(', ') || 'N/A'}
           </li>
           <li>
-            <span className="label">BoxOffice</span>
-            <span className="value">${movie?.fees?.world?.value || 'N/A'}</span>
+            <strong>Слоган:</strong> {movie?.slogan || 'Нет слогана'}
           </li>
           <li>
-            <span className="label">Country</span>
-            <span className="value">
-              {movie?.countries?.map(country => country.country).join(', ') || 'N/A'}
-            </span>
-          </li>
-          <li>
-            <span className="label">Actors</span>
-            <span className="value">
-              {movie?.persons
-                ?.filter(person => person.enProfession === 'actor')
-                .map(person => person.name)
-                .join(', ') || 'N/A'}
-            </span>
-          </li>
-          <li>
-            <span className="label">Director</span>
-            <span className="value">
-              {movie?.persons?.find(person => person.enProfession === 'director')?.name || 'N/A'}
-            </span>
-          </li>
-          <li>
-            <span className="label">Writers</span>
-            <span className="value">
-              {movie?.persons
-                ?.filter(person => person.enProfession === 'writer')
-                .map(person => person.name)
-                .join(', ') || 'N/A'}
-            </span>
+            <strong>Возрастное ограничение:</strong>{' '}
+            {movie?.ratingAgeLimits ? `+${movie.ratingAgeLimits.slice(3)}` : 'N/A'}
           </li>
         </ul>
       </div>

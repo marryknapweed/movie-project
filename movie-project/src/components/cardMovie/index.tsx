@@ -1,5 +1,6 @@
 import {Link} from 'react-router-dom';
 // import testPhoto from '../../image/testPhoto.jpg';
+import {FaFire} from 'react-icons/fa';
 import './index.scss';
 
 interface Movie {
@@ -12,7 +13,7 @@ interface Movie {
   genres: {genre: string}[];
 }
 
-export const CardMovie = ({movie}: {movie: Movie}) => {
+export const CardMovie = ({movie, isTrendsPage}: {movie: Movie; isTrendsPage?: boolean}) => {
   // const imgUrl = movie.posterUrl || testPhoto;
 
   return (
@@ -20,7 +21,10 @@ export const CardMovie = ({movie}: {movie: Movie}) => {
       <div className="card-movie">
         <div className="card-movie__image">
           <img src={movie.posterUrl} alt={movie.nameRu || movie.nameOriginal || 'Movie'} />
-          <span className="rating">{movie.ratingKinopoisk || movie.ratingImdb || 'N/A'}</span>
+          <span className="rating">
+            {isTrendsPage && <FaFire className="rating-icon" />}
+            {movie.ratingKinopoisk || movie.ratingImdb || 'N/A'}
+          </span>
         </div>
         <div className="card-movie__details">
           <h3 className="card-movie__title">{movie.nameRu || movie.nameOriginal || 'Movie'}</h3>

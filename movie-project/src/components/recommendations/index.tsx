@@ -7,12 +7,13 @@ import {CardMovie} from '../cardMovie';
 import './index.scss';
 
 interface Movie {
-  id: number;
-  poster?: {url: string; previewUrl?: string};
-  name?: string;
-  alternativeName?: string;
-  rating: {imdb?: number};
-  genres: {name: string}[];
+  kinopoiskId: number;
+  posterUrl?: string;
+  nameRu?: string;
+  nameOriginal?: string;
+  genres: {genre: string}[]; // Изменено для совпадения с API
+  ratingKinopoisk?: number;
+  ratingImdb?: number;
 }
 
 export const Recommendations = ({
@@ -22,10 +23,13 @@ export const Recommendations = ({
   currentMovieGenres: string[];
   movieId: number;
 }) => {
-  const {movies} = useSelector((state: RootState) => state.movies);
+  const {movies}: {movies: Movie[]} = useSelector((state: RootState) => state.movies);
+
+  // Фильтруем фильмы по жанрам, исключая текущий фильм
   const recommendedMovies = movies.filter(
-    movie =>
-      movie.genres.some(genre => currentMovieGenres.includes(genre.name)) && movie.id !== movieId // исключаем текущий фильм
+    (movie: Movie) =>
+      movie.genres.some(genre => currentMovieGenres.includes(genre.genre)) &&
+      movie.kinopoiskId !== movieId
   );
 
   return (
@@ -40,7 +44,7 @@ export const Recommendations = ({
 
       <div className="recommendations__list">
         {recommendedMovies.map(movie => (
-          <CardMovie key={movie.id} movie={movie} />
+          <CardMovie key={movie.kinopoiskId} movie={movie} />
         ))}
       </div>
     </div>

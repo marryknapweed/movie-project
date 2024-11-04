@@ -16,6 +16,8 @@
 
   .rating {
     position: absolute;
+    display: flex;
+    align-items: center;
     color: #fff;
     background-color: #00a340;
     border-radius: 6px;
@@ -34,4 +36,13 @@
 
 .card-movie__genre {
   color: #afb2b6;
+}
+
+.movie-trends-page .rating {
+  background-color: #7b61ff;
+}
+
+.rating-icon {
+  margin-right: 5px;
+  // color: gold; // Цвет иконки на странице трендов
 }

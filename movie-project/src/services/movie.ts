@@ -7,6 +7,6 @@ export async function requestMovies() {
 }
 
 export async function requestMoviesItem(movieId: number) {
-  const {data} = await client.get(`/movie/${movieId}`);
+  const {data} = await client.get(`/${movieId}`);
   return data;
 }

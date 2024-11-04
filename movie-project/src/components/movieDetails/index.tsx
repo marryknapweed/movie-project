@@ -2,8 +2,6 @@ import {useEffect} from 'react';
 import {useDispatch, useSelector} from 'react-redux';
 import {AppDispatch, RootState} from '../../redux/store';
 import {fetchMovieById} from '../../redux/movieDetails-slice';
-import {Movie} from '../../types/movie';
-
 import testImage from '../../image/testPhoto.jpg';
 import './index.scss';
 
@@ -23,7 +21,7 @@ export const MovieDetails = ({movieId}: {movieId: number}) => {
     <div className="movie-details">
       <div className="movie-details__left">
         <div className="movie-details__image">
-          <img src={movie?.poster?.url || testImage} alt="Films" />
+          <img src={movie?.posterUrl || testImage} alt="Movie Poster" />
         </div>
 
         <div className="movie-details__action">
@@ -34,14 +32,16 @@ export const MovieDetails = ({movieId}: {movieId: number}) => {
 
       <div className="movie-details__right">
         <p className="movie-details__genres">
-          {movie?.genres?.map(genre => genre.name).join(' • ') || 'No genre info'}
+          {movie?.genres?.map(genre => genre.genre).join(' • ') || 'No genre info'}
         </p>
-        <h2 className="movie-details__title">{movie?.name || 'Movie Title'}</h2>
+        <h2 className="movie-details__title">
+          {movie?.nameRu || movie?.nameOriginal || 'Movie Title'}
+        </h2>
 
         <div className="movie-details__ratings">
-          <span className="rating">{movie?.rating?.imdb || 'N/A'}</span>
-          <span className="imdb-rating">IMDb {movie?.rating?.imdb || 'N/A'}</span>
-          <span className="duration">{movie?.movieLength || 'N/A'} </span>
+          <span className="rating">{movie?.ratingKinopoisk || movie?.ratingImdb || 'N/A'}</span>
+          <span className="imdb-rating">IMDb {movie?.ratingImdb || 'N/A'}</span>
+          <span className="duration">{movie?.filmLength || 'N/A'} min</span>
         </div>
 
         <div className="movie-details__description">
@@ -64,12 +64,8 @@ export const MovieDetails = ({movieId}: {movieId: number}) => {
           <li>
             <span className="label">Country</span>
             <span className="value">
-              {movie?.countries?.map(country => country.name).join(', ') || 'N/A'}
+              {movie?.countries?.map(country => country.country).join(', ') || 'N/A'}
             </span>
-          </li>
-          <li>
-            <span className="label">Production</span>
-            <span className="value">{movie?.production || 'N/A'}</span>
           </li>
           <li>
             <span className="label">Actors</span>

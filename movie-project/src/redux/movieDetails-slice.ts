@@ -1,3 +1,5 @@
+// movieDetails-slice.ts
+
 import {createAsyncThunk, createSlice} from '@reduxjs/toolkit';
 import {requestMoviesItem} from '../services/movie';
 
@@ -14,7 +16,7 @@ export const fetchMovieById = createAsyncThunk(
       const data = await requestMoviesItem(movieId);
       return data;
     } catch (error) {
-      return rejectWithValue(error);
+      return rejectWithValue((error as Error).message); // Передаем только сообщение об ошибке
     }
   }
 );
@@ -33,9 +35,9 @@ export const movieDetailsSlice = createSlice({
         state.isLoading = false;
         state.movie = action.payload;
       })
-      .addCase(fetchMovieById.rejected, state => {
+      .addCase(fetchMovieById.rejected, (state, action) => {
         state.isLoading = false;
-        state.error = action.error.message;
+        state.error = action.payload as string; // Ожидаем сообщение ошибки
       });
   },
 });

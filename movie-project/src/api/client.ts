@@ -1,8 +1,10 @@
 import axios from 'axios';
 
 export const client = axios.create({
-  baseURL: 'https://api.kinopoisk.dev/v1.4',
+  baseURL: 'https://kinopoiskapiunofficial.tech/api/v2.2/films',
+
   headers: {
-    'X-API-KEY': '59V1FVT-JDS4K65-PBWHK5J-GG9X8XK',
+    'X-API-KEY': '15c71d04-5231-4ee5-8259-eab304de20f4',
+    'Content-Type': 'application/json',
   },
 });

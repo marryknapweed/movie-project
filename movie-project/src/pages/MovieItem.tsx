@@ -11,8 +11,8 @@ export const MovieItem = () => {
 
   const movie = useSelector((state: RootState) => state.movieDetails.movie); // Получаем сам фильм
 
-  // Получаем жанры текущего фильма
-  const currentMovieGenres = movie?.genres ? movie.genres.map(genre => genre.name) : [];
+  // Получаем жанры текущего фильма (обновлено под структуру Kinopoisk API)
+  const currentMovieGenres = movie?.genres ? movie.genres.map(genre => genre.genre) : [];
 
   return (
     <div className="movie-item">

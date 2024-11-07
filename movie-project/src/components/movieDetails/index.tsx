@@ -3,6 +3,7 @@ import {useDispatch, useSelector} from 'react-redux';
 import {AppDispatch, RootState} from '../../redux/store';
 import {fetchMovieById} from '../../redux/movieDetails-slice';
 import testImage from '../../image/testPhoto.jpg';
+import {addFavorite, removeFavorite} from '../../redux/movieFavorites-slice';
 import './index.scss';
 
 export const MovieDetails = ({movieId}: {movieId: number}) => {
@@ -13,6 +14,17 @@ export const MovieDetails = ({movieId}: {movieId: number}) => {
   useEffect(() => {
     dispatch(fetchMovieById(movieId));
   }, [dispatch, movieId]);
+
+  const handleAddToFavorites = () => {
+    if (movie) {
+      dispatch(addFavorite(movie));
+    }
+  };
+
+  // const handleRemoveFromFavorites = () => {
+  //   if (movie) {
+  //     dispatch(removeFavorite(movie));
+  // }
 
   if (isLoading) return <div>Loading...</div>;
   if (error) return <div>Error</div>;
@@ -25,7 +37,9 @@ export const MovieDetails = ({movieId}: {movieId: number}) => {
         </div>
 
         <div className="movie-details__action">
-          <button className="favorites">Favorites</button>
+          <button className="favorites" onClick={handleAddToFavorites}>
+            Favorites
+          </button>
           <button className="share">Share</button>
         </div>
       </div>

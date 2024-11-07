@@ -3,6 +3,7 @@ import {createBrowserRouter} from 'react-router-dom';
 import {MovieListPage} from './pages/MovieList';
 import {MovieItem} from './pages/MovieItem';
 import {MovieTrendsPage} from './pages/MovieTrends';
+import {FavoritesPage} from './pages/MovieFavorites';
 
 export const router = createBrowserRouter([
   {
@@ -21,8 +22,8 @@ export const router = createBrowserRouter([
         element: <MovieItem />,
       },
       {
-        path: '/settings',
-        element: <h1>Settings</h1>,
+        path: '/favorites',
+        element: <FavoritesPage />,
       },
     ],
   },
